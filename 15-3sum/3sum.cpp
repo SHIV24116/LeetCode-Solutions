@@ -5,6 +5,8 @@ public:
         int n=nums.size();
         sort(nums.begin(),nums.end());
         for(int i=0;i<n;i++){
+            if(i>0 && nums[i]==nums[i-1]) continue;
+
             int t=0-nums[i];
             int left=i+1;
             int right=n-1;
@@ -13,8 +15,10 @@ public:
                     v.push_back({nums[i],nums[left],nums[right]});
                     left++;
                     right--;
-                    while(left<right && nums[left]==nums[left-1] && nums[right]==nums[right+1]){
+                    while(left<right && nums[left]==nums[left-1] ){
                         left++;
+                    }
+                    while(left<right && nums[right]==nums[right+1]){
                         right--;
                     }
                 }
@@ -22,14 +26,6 @@ public:
                 else left++;
             }
         }
-        set<vector<int>>s;
-        s.insert(v.begin(),v.end());
-        vector<vector<int>>a;
-        for(auto i:s){
-            a.push_back(i);
-        }
-        return a;
-        
-        
+        return v;
     }
 };
