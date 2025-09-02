@@ -8,10 +8,7 @@ public:
                 if(points[i][0]>=points[j][0] && points[i][1]<=points[j][1] && i!=j){
                     bool x=true;
                     for(auto m:points){
-                        if(m[0]<=points[i][0] && m[0]>=points[j][0] && m[1]<=points[j][1] && m[1]>=points[i][1] && m!=points[i] && m!=points[j]){
-                            x=false;
-                        }
-
+                        if(m[0]<=points[i][0] && m[0]>=points[j][0] && m[1]<=points[j][1] && m[1]>=points[i][1] && m!=points[i] && m!=points[j]) x=false;
                     }
                     if(x) ct++;
                 }
