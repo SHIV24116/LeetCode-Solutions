@@ -22,20 +22,6 @@ public:
                     cnt = 0;
                 }
             }
-
-            // int x=0;
-            // int b=0;
-            // while(x+k<=bloomDay.size()){
-            //     bool t=true;
-            //     for(int i=x;i<x+k;i++){
-            //         if(bloomDay[i]>mid) t=false;
-            //     }
-            //     if(t){
-            //         b++;
-            //         x=x+k;
-            //     }
-            //     else x++;    
-            // }
             if(b>=m){
                 d=mid;
                 h=mid-1;
