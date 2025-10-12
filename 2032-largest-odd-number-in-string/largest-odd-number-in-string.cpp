@@ -9,11 +9,8 @@ public:
                 break;
             }
         }
-        string a="";
-        for(int i=0;i<=n;i++){
-            a.push_back(num[i]);
-        }
-        return a;
+        if(n==-1) return "";
+        else return num.substr(0,n+1);
         
     }
 };
