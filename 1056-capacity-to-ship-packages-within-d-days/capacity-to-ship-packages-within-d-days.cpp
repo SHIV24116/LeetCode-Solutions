@@ -18,6 +18,7 @@ public:
         }
         return ans;
     }
+private:
     bool possible(vector<int>& weights,int cap,int days){
         int used_days=1;
         int x=0;
