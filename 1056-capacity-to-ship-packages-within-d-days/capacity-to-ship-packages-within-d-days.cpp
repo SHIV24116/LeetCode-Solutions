@@ -14,24 +14,21 @@ public:
                ans=cap;
                hw=cap-1;
             }
-            else{
-                lw=cap+1;
-            }
+            else lw=cap+1;
         }
         return ans;
     }
-    
-        bool possible(vector<int>& weights,int cap,int days){
-            int used_days=1;
-            int x=0;
-            for(int i=0;i<weights.size();i++){
-                if(x+weights[i]>cap){
-                    used_days++;
-                    x=0;
-                }
-                x=x+weights[i];
+    bool possible(vector<int>& weights,int cap,int days){
+        int used_days=1;
+        int x=0;
+        for(int i=0;i<weights.size();i++){
+            if(x+weights[i]>cap){
+                used_days++;
+                x=0;
             }
-            return used_days<=days;
+            x=x+weights[i];
         }
+        return used_days<=days;
+    }
 };
 auto init = atexit( []() { ofstream( "display_runtime.txt" ) << "0"; } );
