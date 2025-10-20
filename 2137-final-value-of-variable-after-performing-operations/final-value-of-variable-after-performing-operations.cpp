@@ -5,7 +5,6 @@ public:
         for(int i=0;i<operations.size();i++){
             if(operations[i]=="++X" || operations[i]=="X++") x++;
             else x--;
-        }
-        return x;
+        }return x;
     }
 };
