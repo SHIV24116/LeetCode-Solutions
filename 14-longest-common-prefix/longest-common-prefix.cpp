@@ -1,28 +1,14 @@
 class Solution {
-    bool ispres(const string& x, const string& d) {
-        for (int i = 0; i + x.size() <= d.size(); i++) {
-            if (d.substr(0, x.size()) == x)
-                return true;
-        }
-        return false;
-    }
-
 public:
     string longestCommonPrefix(vector<string>& strs) {
-        string a = "";
-        string ans = "";
-        for (char c : strs[0]) {
-            a += c;
-            bool ok = true;
+        if (strs.empty()) return "";
+        for (int i = 0; i < strs[0].size(); i++) {
+            char c = strs[0][i];
             for (int j = 1; j < strs.size(); j++) {
-                if (!ispres(a, strs[j])) {
-                    ok = false;
-                    break;
-                }
+                if (i >= strs[j].size() || strs[j][i] != c)
+                    return strs[0].substr(0, i);
             }
-            if (ok) ans = a;
-            else break;
         }
-        return ans;
+        return strs[0];
     }
 };
