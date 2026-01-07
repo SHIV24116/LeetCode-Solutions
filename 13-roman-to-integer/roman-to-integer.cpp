@@ -11,13 +11,10 @@ public:
         m['M']=1000;
         int ans=0;
         for(int i=0;i<s.size();i++){
-            if(i!=s.size()-1){
-                if(s[i]=='I' && (s[i+1]=='V' || s[i+1]=='X')) ans=ans-m[s[i]];
-                else if(s[i]=='X' && (s[i+1]=='L' || s[i+1]=='C')) ans=ans-m[s[i]];
-                else if(s[i]=='C' && (s[i+1]=='D' || s[i+1]=='M')) ans=ans-m[s[i]];
-                else ans=ans+m[s[i]];
-            }
-            else ans=ans+m[s[i]];
+            if (i + 1 < s.size() && m[s[i]] < m[s[i + 1]])
+                ans -= m[s[i]];
+            else
+                ans += m[s[i]];
         }
         return ans;
     }
