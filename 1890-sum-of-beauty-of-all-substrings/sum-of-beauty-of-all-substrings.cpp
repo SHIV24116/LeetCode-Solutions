@@ -10,10 +10,10 @@ public:
                 freq[s[j] - 'a']++;
                 int mx = 0;
                 int mn = INT_MAX;
-                for (int k = 0; k < 26; k++) {
-                    if (freq[k] > 0) {
-                        mx = max(mx, freq[k]);
-                        mn = min(mn, freq[k]);
+                for (auto it: freq) {
+                    if (it > 0) {
+                        mx = max(mx, it);
+                        mn = min(mn, it);
                     }
                 }
                 ans += (mx - mn);
