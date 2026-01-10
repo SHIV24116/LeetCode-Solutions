@@ -1,16 +1,18 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        vector<ListNode*> visited;
-        ListNode* curr = head;
+        if (head == nullptr || head->next == nullptr)
+            return false;
 
-        while (curr != nullptr) {
-            for (int i = 0; i < visited.size(); i++) {
-                if (visited[i] == curr)
-                    return true;
-            }
-            visited.push_back(curr);
-            curr = curr->next;
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while (fast != nullptr && fast->next != nullptr) {
+            slow = slow->next;
+            fast = fast->next->next;
+
+            if (slow == fast)
+                return true;
         }
         return false;
     }
