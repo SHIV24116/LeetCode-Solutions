@@ -13,6 +13,7 @@ public:
     vector<vector<int>> subsets(vector<int>& nums) {
         vector<int>v;
         vector<vector<int>>ans;
+        ans.reserve(1 << nums.size());   /// prevents repeated memory reallocation
         helper(0,v,nums,nums.size(),ans);
         return ans;
     }
