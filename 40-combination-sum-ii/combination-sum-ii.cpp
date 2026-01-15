@@ -3,7 +3,6 @@ public:
     void helper(int i,vector<int>&candidates,int target,vector<vector<int>>&ans,vector<int>&curr){
         if(target==0){
             ans.push_back(curr);
-            return;
         }
         for (int j = i; j < candidates.size(); j++) {
             // Skip duplicates
