@@ -1,14 +1,16 @@
 class Solution {
 public:
     bool hasAllCodes(string s, int k) {
-        if(s.size()<k) return false;
-        vector<string>v;
-        for(int i=0;i<s.size()-k+1;i++){
-           v.push_back(s.substr(i,k));
+        if (s.size() < k) return false;
+
+        unordered_set<string>us;
+        us.reserve(1 << k);
+
+        for (int i = 0; i+k <= s.size(); i++) {
+            us.insert(s.substr(i, k));
+            if (us.size() == (1 << k))
+                return true;
         }
-        sort(v.begin(), v.end());
-        v.erase(unique(v.begin(), v.end()), v.end());
-        if(v.size() >= 1<<k) return true;
         return false;
     }
 };
