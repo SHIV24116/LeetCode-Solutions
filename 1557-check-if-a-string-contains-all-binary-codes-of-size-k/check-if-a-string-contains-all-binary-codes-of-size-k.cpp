@@ -8,7 +8,7 @@ public:
         }
         sort(v.begin(), v.end());
         v.erase(unique(v.begin(), v.end()), v.end());
-        if(v.size()>=pow(2,k)) return true;
+        if(v.size() >= 1<<k) return true;
         return false;
     }
 };
