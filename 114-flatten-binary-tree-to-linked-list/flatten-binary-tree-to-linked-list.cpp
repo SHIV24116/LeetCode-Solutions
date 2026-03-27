@@ -13,18 +13,15 @@ class Solution {
 public:
     TreeNode* prev=nullptr;
 
-    void pret(TreeNode* node){
-        if(node==nullptr) return;
-
-        pret(node->right);
-        pret(node->left);
-
-        node->left=nullptr;
-        node->right=prev;
-
-        prev=node;
-    }
     void flatten(TreeNode* root){
-        pret(root);
+        if(root==nullptr) return;
+
+        flatten(root->right);
+        flatten(root->left);
+
+        root->left=nullptr;
+        root->right=prev;
+
+        prev=root;
     }
 };
