@@ -4,9 +4,10 @@ public:
         int n = grid.size();
         int m = grid[0].size();
 
-        deque<pair<int,int>> dq;
-        vector<vector<int>> dist(n, vector<int>(m, INT_MAX));
-        dist[0][0] = grid[0][0];
+        deque<pair<int,int>> dq;  // since all edges do not have same weights so we can use Dijkshtra(priority Queue) algo.
+        //but since there are only two possible edge weights so can use Deque which will be faster.
+        vector<vector<int>> dist(n, vector<int>(m, INT_MAX)); 
+        dist[0][0] = grid[0][0];   
         dq.push_front({0,0});
 
         int dr[] = {-1,1,0,0};
@@ -23,11 +24,13 @@ public:
                 int newCost = dist[r][c] + grid[nr][nc];
                 if(newCost < dist[nr][nc]){
                     dist[nr][nc] = newCost;
-                    if(grid[nr][nc] == 0) dq.push_front({nr,nc});
-                    else dq.push_back({nr,nc});
+                    if(grid[nr][nc] == 0) dq.push_front({nr,nc}); //weight 1.... one side(front)
+                    else dq.push_back({nr,nc});  //weight 0...other side(back)
                 }
             }
         }
+
+        //we just calculayed min health cost to reach (n-1,m-1)
         return dist[n-1][m-1] < health;
     }
 };
