@@ -18,6 +18,8 @@ public:
                 pq.pop();
                 int w=it.first;
                 int node=it.second;
+
+                if (w > dist[node]) continue;
                 for(auto idx:adj[node]){
                     int adjnode=idx.first;
                     int wn=idx.second;
