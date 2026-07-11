@@ -30,7 +30,6 @@ public:
                     dist[x][y] = d+1;
                     q.push({dist[x][y],{x,y}});
                 }
-                 
             }
         }
         return -1;
