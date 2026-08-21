@@ -23,10 +23,12 @@ public:
         sort(words.begin(), words.end(),[](string &a, string &b) {
             return a.size() < b.size();
         }); ////since we don't need to preserve any order of the words...can take any order and sorting will be the best order for predecessors
-        vector<int>dp(n,1);
+
+        vector<int>dp(n,1);  //dp denotes the length of the longest valid string chain ending at words[i].
         vector<int>prev(n,-1);
         for(int i=0;i<n;i++){
             for(int j=0;j<i;j++){
+                if (words[j].size() + 1 != words[i].size()) continue;
                 if(dp[j]+1>dp[i] && isPredecessor(words[j],words[i])){
                     dp[i]=dp[j]+1;
                     prev[i]=j;
